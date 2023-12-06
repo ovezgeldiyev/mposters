@@ -1,0 +1,235 @@
+.hero {
+  padding: 190px 0 210px;
+  background-color: $main;
+  &__inner {
+    &-content {
+      max-width: 750px;
+      margin: 0 auto;
+      text-align: start;
+    }
+    h1 {
+      margin-bottom: 5px;
+    }
+    p {
+      margin-bottom: 24px;
+      a {
+        font-weight: 600;
+        &.underline {
+          text-decoration: underline;
+        }
+        &:hover {
+          opacity: 1;
+          color: $primary;
+        }
+      }
+    }
+    .button {
+      width: 100%;
+      max-width: 200px;
+    }
+  }
+}
+// 1380px
+@mixin hero-xxxlg-xxxxlg {
+  .hero {
+    padding: 160px 0 170px;
+  }
+}
+// 1180px
+@mixin hero-xlg-xxlg {
+  .hero {
+    &__inner {
+        .button {
+            max-width: 170px;
+        }
+    }
+  }
+}
+// 930px
+@mixin hero-md-lg {
+  .hero {
+    padding: 130px 0;
+  }
+}
+// 540px
+@mixin hero-xsm-sm {
+  .hero {
+    padding: 110px 0 100px;
+    &__inner {
+      &-content {
+        text-align: center;
+      }
+      h1 {
+        margin-bottom: 16px;
+      }
+      p {
+        margin-bottom: 30px;
+      }
+      .button {
+        max-width: 140px;
+      }
+    }
+  }
+}
+.gallery {
+  padding: 0 0 100px;
+  background-color: #dddddd;
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    transform: translateY(-75px);
+    &-row {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -20px 30px;
+    }
+    .button {
+      width: 100%;
+      max-width: 200px;
+      margin: 0 auto;
+    }
+    .showMore {
+      .galleryItem {
+        &:nth-child(n + 9){
+            display: none;
+        }
+      }
+      &.active {
+        .galleryItem {
+            &:nth-child(n + 9){
+                display: block;
+                display: flex;
+                animation: fadeIn 0.4s;
+            }
+          }
+      }
+    }
+  }
+  &Item {
+    margin: 0 20px 80px;
+    width: calc(25% - 40px);
+    box-shadow: 0px 3px 27.2px 4.8px rgba(17, 98, 232, 0.2);
+    &:nth-child(even) {
+      &:hover {
+        img {
+          transform: scale(1.1) rotate(2deg);
+        }
+      }
+    }
+    &:hover {
+      opacity: 1;
+      img {
+        transform: scale(1.1) rotate(-2deg);
+      }
+    }
+    &__inner {
+      width: 100%;
+      position: relative;
+      padding-bottom: 154%;
+      overflow: hidden;
+      border-radius: 8px;
+      border: 3px solid rgba(136, 136, 136, 0.4);
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include fullImage;
+        transition: 0.3s ease;
+      }
+    }
+  }
+}
+// 1380px
+@mixin gallery-xxxlg-xxxxlg {
+  .gallery {
+    padding-bottom: 70px;
+    &__inner {
+        transform: translateY(-50px);
+        &-row {
+            margin: 0 -10px 20px;
+        }
+    }
+    &Item {
+        width: calc(25% - 20px);
+        margin: 0 10px 40px;
+    }
+  }
+}
+// 1180px
+@mixin gallery-xlg-xxlg {
+  .gallery {
+    padding-bottom: 50px;
+    &__inner {
+        &-row {
+            margin: 0 -5px 20px;
+        }
+        .button {
+            max-width: 170px;
+        }
+    }
+    &Item {
+        margin: 0 5px 24px 5px;
+        width: calc(25% - 10px);
+    }
+  }
+}
+// 930px
+@mixin gallery-md-lg {
+  .gallery {
+    padding-bottom: 30px;
+    &__inner {
+        &-row {
+        }
+        .showMore {
+            .galleryItem {
+              &:nth-child(n + 7){
+                  display: none;
+              }
+            }
+            &.active {
+              .galleryItem {
+                  &:nth-child(n + 7){
+                      display: block;
+                      display: flex;
+                      animation: fadeIn 0.4s;
+                  }
+                }
+            }
+          }
+    }
+    &Item {
+        width: calc(33.3% - 10px);
+    }
+  }
+}
+// 540px
+@mixin gallery-xsm-sm {
+  .gallery {
+    &__inner {
+        transform: translateY(-35px);
+        .button {
+          max-width: 140px;
+        }
+    }
+    &Item {
+        width: calc(50% - 10px);
+        &__inner {
+            border-width: 1px;
+        }
+    }
+  }
+}
+// 440px
+@mixin gallery-xxxsm-xxsm {
+  .gallery {
+    &__inner {
+      &-row {
+        margin: 0 -3px 10px;
+      }
+    }
+    &Item {
+      width: calc(50% - 6px);
+      margin: 0 3px 15px 3px;
+    }
+  }
+}
